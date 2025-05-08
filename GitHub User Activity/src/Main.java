@@ -17,6 +17,11 @@ public class Main
 		 * GitHub API and display it in the terminal.
 		 */
 
+		/*
+		 * TODO:
+		 * - Fix Gson exception
+		 * - Figure out how to parse through data received from api
+		 */
 		HttpRequest getRequest = HttpRequest.newBuilder()
 				.uri(new URI("https://api.github.com/users/zachprogramming1684/events"))
 				.header("accept", "application/vnd.github+json")
