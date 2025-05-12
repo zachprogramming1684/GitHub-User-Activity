@@ -1,10 +1,13 @@
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.util.*;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 
 public class Main 
@@ -29,11 +32,18 @@ public class Main
 				
 		HttpClient h = HttpClient.newHttpClient();
 		HttpResponse<String> getResponse = h.send(getRequest, BodyHandlers.ofString());
-		System.out.println(getResponse.body());
+		String jsonString = getResponse.body();
 		
 		Gson g = new Gson();
 		
-		
+        Type eventListType = new TypeToken<ArrayList<GitHubEvent>>() {}.getType();
+        ArrayList<GitHubEvent> events = g.fromJson(jsonString, eventListType);
+        System.out.println(events.size());
+        for(GitHubEvent e : events)
+        {
+        	System.out.println(e.getId() + " " + e.getType());
+        }
+			
 	}
 
 }
