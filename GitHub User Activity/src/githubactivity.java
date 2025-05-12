@@ -25,8 +25,15 @@ public class githubactivity
 		 * - Fix Gson exception
 		 * - Figure out how to parse through data received from api
 		 */
+		int pushEventCounter = 0;
+		int issueCommentEventCounter = 0;
+		int issuesEventCounter = 0;
+		int pullRequestEventCounter = 0;
+		int createEventCounter = 0;
+		int watchEventCounter = 0;
+		
 		HttpRequest getRequest = HttpRequest.newBuilder()
-				.uri(new URI("https://api.github.com/users/zachprogramming1684/events"))
+				.uri(new URI(args[0]))
 				.header("accept", "application/vnd.github+json")
 				.build();
 				
@@ -39,11 +46,31 @@ public class githubactivity
         Type eventListType = new TypeToken<ArrayList<GitHubEvent>>() {}.getType();
         ArrayList<GitHubEvent> events = g.fromJson(jsonString, eventListType);
         System.out.println(events.size());
+        
         for(GitHubEvent e : events)
         {
-        	//switch(e.getType())
+        	switch(e.getType())
+        	{
+        	case("PushEvent"):
+        		pushEventCounter++;
+        		
+        	case("IssueCommentEvent"):
+        		issueCommentEventCounter++;
+        		
+        	case("IssuesEvent"):
+        		issuesEventCounter++;
+        		
+        	case("PullRequestEvent"):
+        		pullRequestEventCounter++;
+        		
+        	case("CreateEvent"):
+        		createEventCounter++;
+        		
+        	case("WatchEvent"):
+        		watchEventCounter++;
+        	}
 
-        }
+        } 
         
         
 			
