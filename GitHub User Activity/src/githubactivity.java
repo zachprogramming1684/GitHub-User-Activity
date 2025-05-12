@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
-public class Main 
+public class githubactivity 
 {
 	public static void main(String[] args) throws Exception
 	{
@@ -41,8 +41,11 @@ public class Main
         System.out.println(events.size());
         for(GitHubEvent e : events)
         {
-        	System.out.println(e.getId() + " " + e.getType());
+        	//switch(e.getType())
+
         }
+        
+        
 			
 	}
 
