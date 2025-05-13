@@ -36,7 +36,8 @@ public class githubactivity
 		}
 		catch(Exception e)
 		{
-			System.out.println("Please ensure you have typed a correct GitHub API endpoint for user activity.");
+			System.out.println("Please provide a valid GitHub API endpoint for recent user activity.");
+			System.out.println("Example: https://api.github.com/users/zachprogramming1684/events");
 		}
 	}
 
