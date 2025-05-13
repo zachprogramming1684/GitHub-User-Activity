@@ -1,4 +1,7 @@
 import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date; 
 
 public class GitHubEvent {
@@ -7,8 +10,9 @@ public class GitHubEvent {
     private Actor actor;
     private Repo repo;
     private Payload payload;
+    @SerializedName("public")
     private boolean isPublic; 
-    private Date createdAt;   
+    private Date created_at;   
 
     public String getId() {
         return id;
@@ -35,7 +39,7 @@ public class GitHubEvent {
     }
 
     public Date getCreatedAt() {
-        return createdAt;
+        return created_at;
     }
 
     public void setId(String id) {
@@ -63,17 +67,17 @@ public class GitHubEvent {
     }
 
     public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+        this.created_at = createdAt;
     }
 }
 
 class Actor {
     private int id;
     private String login;
-    private String displayLogin;
-    private String gravatarId;
+    private String display_login;
+    private String gravatar_id;
     private String url;
-    private String avatarUrl;
+    private String avatar_url;
 
     public int getId() {
         return id;
@@ -84,11 +88,11 @@ class Actor {
     }
 
     public String getDisplayLogin() {
-        return displayLogin;
+        return display_login;
     }
 
     public String getGravatarId() {
-        return gravatarId;
+        return gravatar_id;
     }
 
     public String getUrl() {
@@ -96,7 +100,7 @@ class Actor {
     }
 
     public String getAvatarUrl() {
-        return avatarUrl;
+        return avatar_url;
     }
 
     public void setId(int id) {
@@ -108,11 +112,11 @@ class Actor {
     }
 
     public void setDisplayLogin(String displayLogin) {
-        this.displayLogin = displayLogin;
+        this.display_login = displayLogin;
     }
 
     public void setGravatarId(String gravatarId) {
-        this.gravatarId = gravatarId;
+        this.gravatar_id = gravatarId;
     }
 
     public void setUrl(String url) {
@@ -120,7 +124,7 @@ class Actor {
     }
 
     public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+        this.avatar_url = avatarUrl;
     }
 }
 
@@ -155,21 +159,21 @@ class Repo {
 }
 
 class Payload {
-    private int repositoryId; 
-    private long pushId;      
+    private int repository_id; 
+    private long push_id;      
     private int size;
-    private int distinctSize; 
+    private int distinct_size; 
     private String ref;
     private String head;
     private String before;
     private List<Commit> commits; 
 
     public int getRepositoryId() {
-        return repositoryId;
+        return repository_id;
     }
 
     public long getPushId() {
-        return pushId;
+        return push_id;
     }
 
     public int getSize() {
@@ -177,7 +181,7 @@ class Payload {
     }
 
     public int getDistinctSize() {
-        return distinctSize;
+        return distinct_size;
     }
 
     public String getRef() {
@@ -197,11 +201,11 @@ class Payload {
     }
 
     public void setRepositoryId(int repositoryId) {
-        this.repositoryId = repositoryId;
+        this.repository_id = repositoryId;
     }
 
     public void setPushId(long pushId) {
-        this.pushId = pushId;
+        this.push_id = pushId;
     }
 
     public void setSize(int size) {
@@ -209,7 +213,7 @@ class Payload {
     }
 
     public void setDistinctSize(int distinctSize) {
-        this.distinctSize = distinctSize;
+        this.distinct_size = distinctSize;
     }
 
     public void setRef(String ref) {
