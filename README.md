@@ -2,7 +2,7 @@
 This is a simple Command Line Interface application for getting recent GitHub activity of a user.
 
 ## Running the Program
-1. Ensure you have Java installed.
+1. Ensure you have the latest JDK installed
 2. Download `githubactivity.jar` to your machine.
 3. In your terminal, navigate to where you downloaded the jar file.
    `cd <your file path>`
